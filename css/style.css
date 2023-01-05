@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+.top {
+    width: 100%;
+    max-width: 600px;
+    height: 92px;
+    background-color: #CF2B2B;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.top h1 {
+    font-size: 44px;
+    color: #FFFFFF;
+    margin-left: 15px;
+}
+.top p {
+    font-size: 18px;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+.content {
+    width: 100%;
+    max-width: 600px;
+}
+.market {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 92px 0;
+    background-color: #EEEEEE;
+    padding: 15px;
+}
+.titulo-categoria {
+    font-size: 26px;
+    color: #333333;
+    margin-top: 30px;
+}
+img {
+    width: 144px;
+    height: 87px;
+}
+.opcoes {
+    width: 172px;
+    height: 216px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    background-color: white;
+}
+.categoria {
+    display: flex;
+    justify-content: space-around;
+    overflow-x: scroll;
+}
