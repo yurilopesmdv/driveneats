@@ -60,8 +60,8 @@ function liberaBotao() {
         const botaoPedido = document.querySelector('.fazer-pedido');
 
         botaoPedido.classList.add('botao-verde');
-        botaoPedido.innerHTML = 'Fazer o pedido';
-
+        botaoPedido.innerHTML = 'Fechar pedido';
+        botaoPedido.removeAttribute('disabled');
         botaoPedido.addEventListener('click', mostrarConfirmar);
     }
         
