@@ -5,6 +5,8 @@ let precoRefeicao;
 let precoBebida;
 let precoSobremesa;
 let total;
+let nome;
+let endereco;
 
 function convertNum(precoString) {
     let preco = precoString.replace("R$","");
@@ -68,6 +70,8 @@ function liberaBotao() {
 }
 
 function mostrarConfirmar() {
+    nome = prompt('Qual o seu nome?');
+    endereco = prompt('Qual é o seu endereço?');
     let modal = document.querySelector('.overlay');
     modal.querySelector('.prato .nome').innerHTML = tituloRefeicao;
     modal.querySelector('.prato .precos').innerHTML = (precoRefeicao / 100).toFixed(2);
@@ -92,11 +96,15 @@ function enviarPedido() {
     - Prato: ${tituloRefeicao}
     - Bebida: ${tituloBebida}
     - Sobremesa: ${tituloSobre}
-    Total: R$ ${(total / 100).toFixed(2)}`
+    Total: R$ ${(total / 100).toFixed(2)}
+    
+    Nome: ${nome}
+    Endereço: ${endereco}`
     
     mensagem = encodeURIComponent(mensagem);
 
     const numero = '5566999999999'
     let link = `https://wa.me/${numero}?text=${mensagem}`
     window.open(link);
+
 }

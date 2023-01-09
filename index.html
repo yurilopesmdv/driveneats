@@ -17,7 +17,7 @@
     <body>
         <div class="content">
             <div class="overlay esconder">
-                <div class="confirmar-pedido">
+                <div data-test="confirm-order-modal" class="confirmar-pedido">
                     <div class="titulo">Confirme seu pedido</div>
                     <ul>
                         <li class="prato">
@@ -37,8 +37,8 @@
                             <div class="preco-total">R$</div>
                         </li>
                     </ul>
-                    <button class="confirma" onclick="enviarPedido()">Tudo certo, pode pedir</button>
-                    <button class="cancela" onclick="cancelarPedido()">Cancelar</button>
+                    <button data-test="confirm-order-btn" class="confirma" onclick="enviarPedido()">Tudo certo, pode pedir</button>
+                    <button data-test="cancel-order-btn" class="cancela" onclick="cancelarPedido()">Cancelar</button>
                 </div>
             </div>
             <div class="top">
@@ -52,23 +52,23 @@
                 <div class="refeicao categoria">
                     <div data-test="dish" onclick="selecionarComida('.refeicao1')" class="refeicao1 opcoes">
                         <img src="img/frango_yin_yang.png">
-                        <div><p class="titulo-neg" >Frango Yin Yang</p></div>
+                        <div data-test="item-name" ><p class="titulo-neg" >Frango Yin Yang</p></div>
                         <div><p class="desc-opc">Um pouco de batata, um pouco de salada</p></div>
-                        <div class="divPreco"><p class="preco">R$14,90</p></div>
+                        <div data-test="item-price" class="divPreco"><p class="preco">R$14,90</p></div>
                         
                     </div>
                     <div data-test="dish" onclick="selecionarComida('.refeicao2')" class="refeicao2 opcoes">
                         <img src="img/frango_yin_yang.png">
-                        <div><p class="titulo-neg">Peixe Yin Yang</p></div>
+                        <div data-test="item-name"><p class="titulo-neg">Peixe Yin Yang</p></div>
                         <div><p class="desc-opc">Um pouco de batata, um pouco de salada</p></div>
-                        <div class="divPreco"><p class="preco">R$15,90</p></div>
+                        <div data-test="item-price" class="divPreco"><p class="preco">R$15,90</p></div>
                         
                     </div>
                     <div data-test="dish" onclick="selecionarComida('.refeicao3')" class="refeicao3 opcoes">
                         <img src="img/frango_yin_yang.png">
-                        <div><p class="titulo-neg">Carne Yin Yang</p></div>
+                        <div data-test="item-name"><p class="titulo-neg">Carne Yin Yang</p></div>
                         <div><p class="desc-opc">Um pouco de batata, um pouco de salada</p></div>
-                        <div class="divPreco"><p class="preco">R$15,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
+                        <div data-test="item-price" class="divPreco"><p class="preco">R$15,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
                     </div>
                     
                 </div>
@@ -78,21 +78,21 @@
                 <div class="bebida categoria">
                     <div data-test="drink" onclick="selecionarBebida('.bebida1')" class="bebida1 opcoes">
                         <img src="img/coca-cola.png" >
-                        <div><p class="titulo-neg">Coca-Cola</p></div>
+                        <div data-test="item-name"><p class="titulo-neg">Coca-Cola</p></div>
                         <div><p class="desc-opc">Lata 350ml</p></div>
-                        <div class="divPreco"><p class="preco">R$ 6,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
+                        <div data-test="item-price" class="divPreco"><p class="preco">R$ 6,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
                     </div>
                     <div data-test="drink" onclick="selecionarBebida('.bebida2')" class="bebida2 opcoes">
                         <img src="img/coca-cola.png" >
-                        <div><p class="titulo-neg">Coca-Cola Zero</p></div>
+                        <div data-test="item-name"><p class="titulo-neg">Coca-Cola Zero</p></div>
                         <div><p class="desc-opc">Lata 350ml</p></div>
-                        <div class="divPreco"><p class="preco">R$ 6,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
+                        <div data-test="item-price" class="divPreco"><p class="preco">R$ 6,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
                     </div>
                     <div data-test="drink" onclick="selecionarBebida('.bebida3')" class="bebida3 opcoes">
                         <img src="img/coca-cola.png" >
-                        <div><p class="titulo-neg">Coca-Cola Diet</p></div>
+                        <div data-test="item-name"><p class="titulo-neg">Coca-Cola Diet</p></div>
                         <div><p class="desc-opc">Lata 350ml</p></div>
-                        <div class="divPreco"><p class="preco">R$ 5,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
+                        <div data-test="item-price" class="divPreco"><p class="preco">R$ 5,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
                     </div>
                     
                 </div>
@@ -102,27 +102,27 @@
                 <div  class="sobremesa categoria">
                     <div data-test="dessert" onclick="selecionarSobre('.sobre1')" class="sobre1 opcoes">
                         <img src="img/pudim.png" >
-                        <div><p class="titulo-neg">Pudim Leite</p></div>
+                        <div data-test="item-name"><p class="titulo-neg">Pudim Leite</p></div>
                         <div><p class="desc-opc">Apenas pudim</p></div>
-                        <div class="divPreco"><p class="preco">R$ 7,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
+                        <div data-test="item-price" class="divPreco"><p class="preco">R$ 7,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
                     </div>
                     <div data-test="dessert" onclick="selecionarSobre('.sobre2')" class="sobre2 opcoes">
                         <img src="img/pudim.png" >
-                        <div><p class="titulo-neg">Pudim Doce de Leite</p></div>
+                        <div data-test="item-name"><p class="titulo-neg">Pudim Doce de Leite</p></div>
                         <div><p class="desc-opc">Apenas pudim</p></div>
-                        <div class="divPreco"><p class="preco">R$ 8,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
+                        <div data-test="item-price" class="divPreco"><p class="preco">R$ 8,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
                     </div>
                     <div data-test="dessert" onclick="selecionarSobre('.sobre3')" class="sobre3 opcoes">
                         <img src="img/pudim.png" >
-                        <div><p class="titulo-neg">Pudim Leite Condensado</p></div>
+                        <div data-test="item-name"><p class="titulo-neg">Pudim Leite Condensado</p></div>
                         <div><p class="desc-opc">Apenas pudim</p></div>
-                        <div class="divPreco"><p class="preco">R$ 9,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
+                        <div data-test="item-price" class="divPreco"><p class="preco">R$ 9,90</p><ion-icon class="opaco" name="checkmark-outline"></ion-icon></div>
                     </div>
                     
                 </div>
             </div>
             <div class="bottom">
-                <button disabled data-test=order-btn class="fazer-pedido">Selecione os 3 itens
+                <button data-test=order-btn disabled class="fazer-pedido">Selecione os 3 itens
                     para fechar o pedido</button>
             </div>
         </div>
