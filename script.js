@@ -1,3 +1,17 @@
+let tituloRefeicao;
+let tituloBebida;
+let tituloSobre;
+let precoRefeicao;
+let precoBebida;
+let precoSobremesa;
+let total;
+
+function convertNum(precoString) {
+    let preco = precoString.replace("R$","");
+    preco = preco.replace(",",".");
+    preco = Number(preco) * 100;
+    return preco;
+}
 function selecionarComida(comidaSelecionada) {
     const comidaSelecionadaAnt = document.querySelector('.refeicao .selecionado');
     if ( comidaSelecionadaAnt !== null ) {
@@ -5,6 +19,13 @@ function selecionarComida(comidaSelecionada) {
     }
     const comidaSelecionada1 = document.querySelector(comidaSelecionada);
     comidaSelecionada1.classList.add("selecionado");
+
+    tituloRefeicao = comidaSelecionada1.querySelector('.titulo-neg').innerHTML;
+    precoRefeicao = comidaSelecionada1.querySelector('.preco').innerHTML;
+    precoRefeicao = convertNum(precoRefeicao);
+    liberaBotao();
+    
+    
 }
 function selecionarBebida(bebidaSelecionada) {
     const bebidaSelecionadaAnt = document.querySelector('.bebida .selecionado');
@@ -13,6 +34,13 @@ function selecionarBebida(bebidaSelecionada) {
     }
     const bebidaSelecionada1 = document.querySelector(bebidaSelecionada);
     bebidaSelecionada1.classList.add("selecionado");
+
+    tituloBebida = bebidaSelecionada1.querySelector('.titulo-neg').innerHTML;
+    precoBebida = bebidaSelecionada1.querySelector('.preco').innerHTML;
+    precoBebida = convertNum(precoBebida);
+    liberaBotao();
+    
+    
 }
 function selecionarSobre(sobreSelecionada) {
     const sobreSelecionadaAnt = document.querySelector('.sobremesa .selecionado');
@@ -21,22 +49,54 @@ function selecionarSobre(sobreSelecionada) {
     }
     const sobreSelecionada1 = document.querySelector(sobreSelecionada);
     sobreSelecionada1.classList.add("selecionado");
+
+    tituloSobre = sobreSelecionada1.querySelector('.titulo-neg').innerHTML;
+    precoSobremesa = sobreSelecionada1.querySelector('.preco').innerHTML;
+    precoSobremesa = convertNum(precoSobremesa);
+    liberaBotao();
 }
 function liberaBotao() {
-    let pedido = [];
-    const refeicaoEscolhida = document.querySelector('.refeicao .selecionado .titulo-neg');
-    pedido.push(refeicaoEscolhida);
-    const bebidaEscolhida = document.querySelector('.bebida .selecionado .titulo-neg');
-    pedido.push(bebidaEscolhida);
-    const sobreEscolhida = document.querySelector('.sobremesa .selecionada .titulo-neg');
-    pedido.push(sobreEscolhida);
-    alert(pedido);
+    if (tituloRefeicao !== undefined && tituloBebida !== undefined && tituloSobre !== undefined) {
+        const botaoPedido = document.querySelector('.fazer-pedido');
 
-    if (pedido.lenght > 2) {
-        alert("oi");
-        const botao = document.querySelector('button');
-        botao.classList.add("botao-verde");
+        botaoPedido.classList.add('botao-verde');
+        botaoPedido.innerHTML = 'Fazer o pedido';
+
+        botaoPedido.addEventListener('click', mostrarConfirmar);
     }
-    
+        
+}
 
+function mostrarConfirmar() {
+    let modal = document.querySelector('.overlay');
+    modal.querySelector('.prato .nome').innerHTML = tituloRefeicao;
+    modal.querySelector('.prato .precos').innerHTML = (precoRefeicao / 100).toFixed(2);
+
+    modal.querySelector('.bebida .nome').innerHTML = tituloBebida;
+    modal.querySelector('.bebida .precos').innerHTML = (precoBebida / 100).toFixed(2);
+
+    modal.querySelector('.sobre .nome').innerHTML = tituloSobre;
+    modal.querySelector('.sobre .precos').innerHTML = (precoSobremesa / 100).toFixed(2);
+
+    total = precoRefeicao + precoBebida + precoSobremesa;
+    modal.querySelector('.total .preco-total').innerHTML = `R$ ${(total / 100).toFixed(2)}`;
+
+    modal.classList.remove('esconder');
+}
+function cancelarPedido() {
+    let modal = document.querySelector('.overlay');
+    modal.classList.add('esconder');
+}
+function enviarPedido() {
+    let mensagem = `Olá, gostaria de fazer o pedido:
+    - Prato: ${tituloRefeicao}
+    - Bebida: ${tituloBebida}
+    - Sobremesa: ${tituloSobre}
+    Total: R$ ${(total / 100).toFixed(2)}`
+    
+    mensagem = encodeURIComponent(mensagem);
+
+    const numero = '5566999999999'
+    let link = `https://wa.me/${numero}?text=${mensagem}`
+    window.open(link);
 }
